@@ -1,0 +1,24 @@
+{
+  "name": "firstapp",
+  "version": "1.0.0",
+  "description": "node setup with expressjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pramodkharade/nodejs.git"
+  },
+  "keywords": [
+    "express",
+    "nodejs",
+    "mysql"
+  ],
+  "author": "Pramod Kharade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pramodkharade/nodejs/issues"
+  },
+  "homepage": "https://github.com/pramodkharade/nodejs#readme"
+}

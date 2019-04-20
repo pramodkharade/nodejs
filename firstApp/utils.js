@@ -1,4 +1,6 @@
 console.log('util.js');
-const name = 'Dnyanda';
+const add = (a,b)=>{
+    return a+b;
+}
 
-module.exports = name;
+module.exports = add;

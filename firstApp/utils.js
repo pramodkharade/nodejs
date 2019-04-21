@@ -1,6 +1,6 @@
 console.log('util.js');
-const add = (a,b)=>{
-    return a+b;
+const add = (msg)=>{
+    return 'This is new technology for me!';
 }
 
 module.exports = add;

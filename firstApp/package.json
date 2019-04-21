@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/pramodkharade/nodejs/issues"
   },
-  "homepage": "https://github.com/pramodkharade/nodejs#readme"
+  "homepage": "https://github.com/pramodkharade/nodejs#readme",
+  "dependencies": {
+    "@types/validator": "^10.11.0",
+    "validator": "^10.11.0"
+  }
 }

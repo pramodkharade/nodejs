@@ -7,8 +7,21 @@ const command = process.argv[2];
 yargs.command({
     command:'add',
     describe:' Add a new note!',
-    handler: function(){
-        console.log('Adding new note!');
+    builder:{
+        title:{
+            describe:'Note title',
+            demandOption:true ,// to make required
+            type:'string'
+        },
+        body:{
+            describe:'Note description',
+            demandOption:true ,// to make required
+            type:'string'
+        }
+    },
+    handler: function(argv){
+        console.log('Adding new note:',argv.title);
+        console.log(' description is:',argv.body);
     }
 });
 
@@ -32,10 +45,10 @@ yargs.command({
 //create list command
 yargs.command({
     command:'list',
-    describe:' list a new note!',
+    describe:' list a new notes!',
     handler: function(){
         console.log('list new note!');
     }
 });
-console.log(yargs.argv);
+yargs.parse();
 

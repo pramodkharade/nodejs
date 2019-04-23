@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 const getNotes = function () {
     return 'your notes...'
 }
@@ -6,10 +7,10 @@ const getNotes = function () {
  * *
  * command: node app.js add --title="Springboot" --body="It is best and easy along career defined."
  * ****/
-const addNote = function (title, body) {
+const addNote = (title, body)=> {
     const notes = loadNotes();
     /***Check whether note title exist or Not***/
-    const duplicateNote = notes.filter(function (note) {
+    const duplicateNote = notes.filter( (note)=> {
         return note.title === title;
     });
     if (duplicateNote.length === 0) {
@@ -18,17 +19,17 @@ const addNote = function (title, body) {
             body: body
         });
         saveNotes(notes);
-        console.log('New note added!');
+        console.log(chalk.green.inverse('New note added: ',title));
     } else {
-        console.log('Note title already taken...!');
+        console.log(chalk.red.inverse('Note title already taken: ',title));
     }
 }
 
-const saveNotes = function (notes) {
+const saveNotes = (notes)=> {
     const dataJson = JSON.stringify(notes);
     fs.writeFileSync('notes.json', dataJson);
 }
-const loadNotes = function () {
+const loadNotes = ()=> {
     try {
         const dataBuffer = fs.readFileSync('notes.json');
         const dataJson = dataBuffer.toString();
@@ -42,12 +43,17 @@ const loadNotes = function () {
  * Comand: node app.js remove --title="NodeJs1"
  * 
  * ***/
-const removeNote = function(title){
+const removeNote = (title)=>{
     const notes = loadNotes();
-    const newNote = notes.filter(function (note) {
+    const newNote = notes.filter((note)=>{
         return note.title !== title;
     });
-    saveNotes(newNote);
+    if(notes.length > newNote.length){
+        saveNotes(newNote);
+        console.log(chalk.green.inverse('Note removed',title));
+    }else{
+        console.log(chalk.red.inverse('No note found:',title));
+    }
     console.log('remove the node :',title);
 }
 module.exports = {

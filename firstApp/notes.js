@@ -1,8 +1,5 @@
 const fs = require('fs');
 const chalk = require('chalk');
-const getNotes = function () {
-    return 'your notes...'
-}
 /**Add Notes**
  * *
  * command: node app.js add --title="Springboot" --body="It is best and easy along career defined."
@@ -65,9 +62,25 @@ const getListNotes = ()=>{
         console.log(note.title);
     });
 }
+
+/****Read notes by title**
+ * 
+ * command: node app.js read --title="Springboot1"
+ * ***/
+const readnote = (title)=>{
+    const notes = loadNotes();
+    const note = notes.find( (note)=> note.title === title);
+    if(note){
+        console.log(chalk.inverse(note.title));
+        console.log(note.body);
+    }else{
+        console.log(chalk.red.inverse('Note is not found!'));
+    }
+}
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
     removeNote:removeNote,
-    getListNotes:getListNotes
+    getListNotes:getListNotes,
+    readnote:readnote
 };

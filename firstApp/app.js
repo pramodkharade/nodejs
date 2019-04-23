@@ -53,7 +53,7 @@ yargs.command({
     command:'list',
     describe:' list a new notes!',
     handler: function(){
-        console.log('list new note!');
+        notes.getListNotes();
     }
 });
 yargs.parse();

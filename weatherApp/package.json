@@ -1,0 +1,16 @@
+{
+  "name": "weatherApp",
+  "version": "1.0.0",
+  "description": "NodeJs with Weather Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Pramod Kharade",
+  "license": "ISC",
+  "dependencies": {
+    "@types/request": "^2.48.1",
+    "request": "^2.88.0"
+  }
+}

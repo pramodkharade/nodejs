@@ -1,14 +1,29 @@
+const path = require('path');
 const express = require('express');
 
+console.log(__dirname);
+console.log(path.join(__dirname,'../public'));
 const app = express();
+const publicdirectoryPath = path.join(__dirname,'../public');
 
+app.use(express.static(publicdirectoryPath));
 /*** Routes*****/
 app.get('',(req,res)=>{
-    res.send('Hello Express');
+    res.send('<h1>Hello Express</h1>');
 });
 
 app.get('/help',(req,res)=>{
-    res.send('Help Page');
+    res.send([{
+        name:'Pramod Kharade',
+        age:32
+    }]);
+});
+app.get('/about',(req,res)=>{
+    res.send('about Page');
+});
+
+app.get('/weather',(req,res)=>{
+    res.send('Weather Page');
 });
 
 app.listen(3000,()=>{

@@ -8,10 +8,6 @@ const publicdirectoryPath = path.join(__dirname,'../public');
 
 app.use(express.static(publicdirectoryPath));
 /*** Routes*****/
-app.get('',(req,res)=>{
-    res.send('<h1>Hello Express</h1>');
-});
-
 app.get('/help',(req,res)=>{
     res.send([{
         name:'Pramod Kharade',

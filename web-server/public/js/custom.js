@@ -1,0 +1,1 @@
+console.log('Public assets js loaded!');

@@ -5,17 +5,27 @@ console.log(__dirname);
 console.log(path.join(__dirname,'../public'));
 const app = express();
 const publicdirectoryPath = path.join(__dirname,'../public');
-
+app.set('view engine', 'hbs');
 app.use(express.static(publicdirectoryPath));
 /*** Routes*****/
+app.get('',(req,res)=>{
+    res.render('index',{
+        title:"Weather App",
+        name:'Pramod Kharade'
+    });
+});
 app.get('/help',(req,res)=>{
-    res.send([{
-        name:'Pramod Kharade',
-        age:32
-    }]);
+    res.render('help',
+    {
+        title:"Help",
+        helptext:'Nodejs is existing to learn...!'
+    });
 });
 app.get('/about',(req,res)=>{
-    res.send('about Page');
+    res.render('about',{
+        title:"About Me",
+        name:'Pramod Kharade'
+    });
 });
 
 app.get('/weather',(req,res)=>{

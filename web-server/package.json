@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/express": "github:types/express",
     "express": "^4.16.4",
+    "hbs": "^4.0.4",
     "nodemon": "^1.19.0"
   }
 }

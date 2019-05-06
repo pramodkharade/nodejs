@@ -39,6 +39,22 @@ app.get('/about',(req,res)=>{
 app.get('/weather',(req,res)=>{
     res.send('Weather Page');
 });
+app.get('/help/*',(req,res)=>{
+    res.render('404',
+    {
+        title:"404 Page",
+        errorText:'Help article not found',
+        name:'Pramod Kharade'
+    });
+});
+app.get('*',(req,res)=>{
+    res.render('404',
+    {
+        title:"404 Page",
+        errorText:'Page not found',
+        name:'Pramod Kharade'
+    });
+});
 
 app.listen(3000,()=>{
     console.log('Server is running on 3000 ');

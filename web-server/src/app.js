@@ -1,15 +1,17 @@
 const path = require('path');
 const express = require('express');
-
+const hbs = require('hbs');
 console.log(__dirname);
 console.log(path.join(__dirname,'../public'));
 const app = express();
 /****Define path to express config*****/
 const publicdirectoryPath = path.join(__dirname,'../public');
-const viewpath = path.join(__dirname,'../templates');
+const viewPath = path.join(__dirname,'../templates/views');
+const partialPath = path.join(__dirname,'../templates/partial');
 /****Setups handlebar and views location**** */
 app.set('view engine', 'hbs');
-app.set('views', viewpath);
+app.set('views', viewPath);
+hbs.registerPartials(partialPath);
 /****Static directory to serve *** */
 app.use(express.static(publicdirectoryPath));
 /*** Routes*****/
@@ -23,7 +25,8 @@ app.get('/help',(req,res)=>{
     res.render('help',
     {
         title:"Help",
-        helptext:'Nodejs is existing to learn...!'
+        helptext:'Nodejs is existing to learn...!',
+        name:'Pramod Kharade'
     });
 });
 app.get('/about',(req,res)=>{

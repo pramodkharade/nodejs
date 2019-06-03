@@ -37,7 +37,16 @@ app.get('/about',(req,res)=>{
 });
 
 app.get('/weather',(req,res)=>{
-    res.send('Weather Page');
+    if(!req.query.address){
+        res.send({
+            'error':'You must provide a address.'
+        });
+    }
+    res.send({
+        'forecast':'Snowing',
+        'locations':'India',
+        'address':req.query.address
+    });
 });
 app.get('/help/*',(req,res)=>{
     res.render('404',

@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const geocode = require('./utils/geocode');
+const getWeather = require('./utils/forecast');
 console.log(__dirname);
 console.log(path.join(__dirname,'../public'));
 const app = express();
@@ -42,11 +44,21 @@ app.get('/weather',(req,res)=>{
             'error':'You must provide a address.'
         });
     }
-    res.send({
-        'forecast':'Snowing',
-        'locations':'India',
-        'address':req.query.address
-    });
+    geocode(req.query.address,(error,{latitude,longitude,locations})=>{
+        if(error){
+            return res.send({error});
+        }
+        getWeather(latitude,longitude,(error,forecastData)=>{
+            if(error){
+                return res.send({error});
+            }
+            res.send({
+                'forecast':forecastData,
+                locations,
+                address:req.query.address
+            });
+        });
+    })
 });
 app.get('/help/*',(req,res)=>{
     res.render('404',

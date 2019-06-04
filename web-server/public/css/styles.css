@@ -34,3 +34,14 @@ img.portrait{
 .main-content{
     flex-grow: 1;
 }
+input {
+    padding: 8px;
+    border: 1px solid #cccccc;
+}
+button{
+    border: 1px solid #888888;
+    padding: 8px;
+    background: #888888;
+    color: white;
+    cursor: pointer;
+}

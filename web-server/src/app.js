@@ -10,6 +10,7 @@ const app = express();
 const publicdirectoryPath = path.join(__dirname,'../public');
 const viewPath = path.join(__dirname,'../templates/views');
 const partialPath = path.join(__dirname,'../templates/partial');
+const port  = process.env.PORT || 3000;
 /****Setups handlebar and views location**** */
 app.set('view engine', 'hbs');
 app.set('views', viewPath);
@@ -77,6 +78,6 @@ app.get('*',(req,res)=>{
     });
 });
 
-app.listen(3000,()=>{
-    console.log('Server is running on 3000 ');
+app.listen(port,()=>{
+    console.log('Server is running on '+port);
 });

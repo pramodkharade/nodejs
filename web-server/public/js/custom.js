@@ -14,7 +14,7 @@ weatherForm.addEventListener('submit',(e)=>{
             messageOne.textContent = data.error;
         } else {
             messageOne.textContent = 'Location: '+data.locations;
-            messageTwo.textContent = 'ForeCast: '+data.forecast.summary+'it is currently '+data.forecast.temp+' degress out. There is a '+data.forecast.rain+'% chance of a rain.';
+            messageTwo.textContent = 'ForeCast: '+data.forecast.summary+'it is currently '+data.forecast.temp+' degress out. This high today is:'+ data.forecast.temperatureHigh+' With low of '+ data.forecast.temperatureLow+' There is a '+data.forecast.rain+'% chance of a rain.';
             console.log('Locations:', data.locations);
             console.log('Forecast:', data.forecast.summary);
         }

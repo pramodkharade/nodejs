@@ -12,13 +12,15 @@ const getWeather=(lat,long, callback)=>{
             callback('unable to search location',undefined);
           }
           else{
-            const data = body;
+            const data = body; console.log(body.daily.data[0]);
             callback(
                 undefined,
                 {
                     temp:data.currently.temperature,
                     rain:data.currently.precipProbability,
-                    summary:body.daily.data[0].summary
+                    summary:body.daily.data[0].summary,
+                    temperatureHigh: body.daily.data[0].temperatureHigh,
+                    temperatureLow: body.daily.data[0].temperatureLow
                 });
           }
     });
